@@ -15,14 +15,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
-
-import com.community.jboss.visitingcard.LoginActivity;
 import com.community.jboss.visitingcard.Maps.MapsActivity;
 import com.community.jboss.visitingcard.R;
 import com.community.jboss.visitingcard.SettingsActivity;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class VisitingCardActivity extends AppCompatActivity {
@@ -57,8 +52,7 @@ public class VisitingCardActivity extends AppCompatActivity {
                         .setNegativeButton("GALLERY", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent pickPhoto = new Intent(Intent.ACTION_PICK,
-                                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                                Intent pickPhoto = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                                 startActivityForResult(pickPhoto, 1);
                             }
                         })
@@ -100,7 +94,6 @@ public class VisitingCardActivity extends AppCompatActivity {
                 if(resultCode == RESULT_OK){
                     Uri selectedImage = imageReturnedIntent.getData();
                     profilePic.setImageURI(selectedImage);
-                    Log.i("Status", selectedImage.getEncodedPath());
                 }
                 break;
 
